@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cookie.Views.HomePage"
+             Title="Добре дошли">
+    <ScrollView>
+        <Grid Margin="0,30,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label FontFamily="FontAwesomeSolid" Text="&#xf00f;" FontSize="80" 
+               HorizontalOptions="Center" VerticalOptions="Center"
+               Grid.Row="0" Margin="10" TextColor="{StaticResource MidGray}"/>
+
+            <SwipeView Grid.Row="1">
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Padding="30,24,30,24" Spacing="8">
+                    <Label Text="Как работи" FontSize="20" FontAttributes="Bold"  />
+                </StackLayout>
+            </SwipeView>
+            <SwipeView Grid.Row="2">
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Padding="30,24,30,24" Spacing="8">
+                    <Label Text="1. Направи си меню" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="Влез в профила си и избери от 24 рецепти, които всяка седмица приготвяме специално за теб .Поръчките приключват всеки четвъртък в 21:00" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+            </SwipeView>
+            <SwipeView Grid.Row="3">
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Padding="30,24,30,24" Spacing="8">
+                    <Label Text="2. Ние ти доставяме" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="Доставяме до твоята врата кошница с най-висококачествените, пресни продукти, специално подредени и селектирани в пакети" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+            </SwipeView>
+            <SwipeView Grid.Row="4">
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Padding="30,24,30,24" Spacing="8">
+                    <Label Text="3. Ти готвиш" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="С помощта на мобилното приложение, бързо и лесно приготвяш най-вкустните ястия, във собствения си дом, без повече планиране на седмичното меню" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+            </SwipeView>
+            <SwipeView Grid.Row="5">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="30,24,30,24" Spacing="8">
+                    <Button x:Name="btn1" Margin="0,10,0,0" Text="Поръчай сега" Clicked="btn1_Cliked"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{DynamicResource PrimaryColor}"
+                        TextColor="White" />
+                </StackLayout>
+            </SwipeView>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

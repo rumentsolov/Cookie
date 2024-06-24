@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cookie.Views.BasketPage"
+             Title="Basket">
+
+    <StackLayout Padding="10">
+        <Label Text="Your Basket" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <CollectionView x:Name="basketCollectionView" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Label Text="{Binding Name}" FontSize="Medium" VerticalOptions="Center" />
+                        <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}" FontSize="Medium" VerticalOptions="Center" TextColor="Green" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label x:Name="totalLabel" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" />
+    </StackLayout>
+
+</ContentPage>
