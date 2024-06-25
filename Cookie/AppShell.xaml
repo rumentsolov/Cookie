@@ -5,13 +5,29 @@
        x:Class="Cookie.AppShell"
        Title="Cookie">
 
-    <FlyoutItem Title="Home" Icon="icon_home.png">
-        <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+    <!-- Main tab bar navigation -->
+    <TabBar>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+        <Tab Title="Menu" Icon="menu.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" />
+        </Tab>
+        <Tab Title="Basket" Icon="basket.png">
+            <ShellContent ContentTemplate="{DataTemplate local:BasketPage}" />
+        </Tab>
+    </TabBar>
+
+    <!-- Flyout menu for Explore dropdown -->
+    <FlyoutItem Title="Explore" Icon="explore.png">
+        <!-- ShellSection for Menu -->
+        <!-- ShellSection for sub-items -->
+        <ShellSection Title="Sub Items">
+            <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:PartnerWithUsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:GiftCardsPage}" />
+        </ShellSection>
     </FlyoutItem>
-    <FlyoutItem Title="Menu" Icon="icon_menu.png">
-        <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Basket" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate local:BasketPage}" />
-    </FlyoutItem>
+
 </Shell>

@@ -1,4 +1,5 @@
-﻿namespace Cookie.Models
+﻿// Models/Dishes.cs
+namespace Cookie.Models
 {
     public class Dish
     {

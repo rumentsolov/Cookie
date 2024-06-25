@@ -12,16 +12,7 @@ namespace Cookie.Views
         {
             InitializeComponent();
             _dish = dish;
-            BindDishData();
-        }
-
-        private void BindDishData()
-        {
-            pictureImage.Source = _dish.Picture;
-            titleLabel.Text = _dish.Name;
-            descriptionLabel.Text = _dish.Description;
-            timeLabel.Text = $"Time for cooking: {_dish.TimeForCooking}";
-            priceLabel.Text = $"Price: ${_dish.Price:F2}";
+            BindingContext = _dish;
         }
 
         private async void OnAddToBasketClicked(object sender, EventArgs e)

@@ -1,23 +1,28 @@
+// Views/BasketPage.xaml.cs
+
 using Cookie.Models;
 using Cookie.Services;
 using Microsoft.Maui.Controls;
-using System.Linq;
+using System;
+using System.Collections.ObjectModel;
 
 namespace Cookie.Views
 {
     public partial class BasketPage : ContentPage
     {
+        public ObservableCollection<Dish> BasketItems { get; set; }
+
         public BasketPage()
         {
             InitializeComponent();
-            basketCollectionView.ItemsSource = BasketService.Instance.BasketItems;
-            UpdateTotal();
+            BasketItems = new ObservableCollection<Dish>(BasketService.Instance.GetBasketItems());
+            BindingContext = this;
         }
 
-        private void UpdateTotal()
+        private void OnClearBasketClicked(object sender, EventArgs e)
         {
-            decimal total = BasketService.Instance.BasketItems.Sum(dish => dish.Price);
-            totalLabel.Text = $"Total: ${total:F2}";
+            BasketService.Instance.ClearBasket();
+            BasketItems.Clear();
         }
     }
 }

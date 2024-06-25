@@ -1,25 +1,31 @@
+// Services/BasketService.cs
+
+using System.Collections.Generic;
+using System.Linq;
 using Cookie.Models;
-using System.Collections.ObjectModel;
 
 namespace Cookie.Services
 {
     public class BasketService
     {
+        private List<Dish> _basketItems;
+
         private static BasketService _instance;
-        private readonly ObservableCollection<Dish> _basketItems;
+        public static BasketService Instance => _instance ??= new BasketService();
 
         private BasketService()
         {
-            _basketItems = new ObservableCollection<Dish>();
+            _basketItems = new List<Dish>();
         }
-
-        public static BasketService Instance => _instance ??= new BasketService();
-
-        public ObservableCollection<Dish> BasketItems => _basketItems;
 
         public void AddToBasket(Dish dish)
         {
             _basketItems.Add(dish);
+        }
+
+        public List<Dish> GetBasketItems()
+        {
+            return _basketItems.ToList(); // Return a copy to prevent direct modification
         }
 
         public void ClearBasket()

@@ -1,6 +1,7 @@
 using Cookie.Models;
 using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Cookie.Views
 {
@@ -11,15 +12,8 @@ namespace Cookie.Views
         public MenuPage()
         {
             InitializeComponent();
-
-            Dishes = new ObservableCollection<Dish>
-            {
-                new Dish { Name = "Pizza", Price = 9.99m, Description = "Delicious cheese pizza", TimeForCooking = "20 minutes", Picture = "pizza.jpg" },
-                new Dish { Name = "Burger", Price = 5.99m, Description = "Juicy beef burger", TimeForCooking = "15 minutes", Picture = "burger.jpg" },
-                // Add more dishes as needed
-            };
-
-            dishesCollectionView.ItemsSource = Dishes;
+            Dishes = new ObservableCollection<Dish>(DishRepository.GetAllDishes());
+            BindingContext = this;
         }
 
         private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)

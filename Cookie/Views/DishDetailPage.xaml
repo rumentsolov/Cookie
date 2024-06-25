@@ -1,16 +1,37 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cookie.Views.DishDetailPage"
-             Title="Dish Detail">
+             Title="Dish Details">
 
-    <StackLayout Padding="10">
-        <Image x:Name="pictureImage" HeightRequest="200" />
-        <Label x:Name="titleLabel" FontSize="Large" />
-        <Label x:Name="descriptionLabel" FontSize="Medium" />
-        <Label x:Name="timeLabel" FontSize="Medium" />
-        <Label x:Name="priceLabel" FontSize="Medium" TextColor="Green" />
-        <Button Text="Add to Basket" Clicked="OnAddToBasketClicked" />
+    <StackLayout Padding="20">
+        <Image Source="{Binding Picture}"
+               Aspect="AspectFill"
+               HeightRequest="200"
+               Margin="0,0,0,20"/>
+
+        <Label Text="{Binding Name}"
+               FontSize="Large"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,0,0,10"/>
+
+        <Label Text="{Binding Description}"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               Margin="0,0,0,10"/>
+
+        <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}"
+               FontSize="Medium"
+               TextColor="Green"
+               HorizontalOptions="Center"
+               Margin="0,0,0,10"/>
+
+        <Button Text="Add to Basket"
+                Clicked="OnAddToBasketClicked"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="DodgerBlue"
+                TextColor="White"
+                Margin="0,20,0,0"/>
     </StackLayout>
 
 </ContentPage>

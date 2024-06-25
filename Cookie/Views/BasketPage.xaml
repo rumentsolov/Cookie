@@ -4,19 +4,26 @@
              x:Class="Cookie.Views.BasketPage"
              Title="Basket">
 
-    <StackLayout Padding="10">
-        <Label Text="Your Basket" FontSize="Large" HorizontalOptions="Center" />
-        <CollectionView x:Name="basketCollectionView">
+    <StackLayout Padding="20">
+        <Label Text="Basket Items" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+        <CollectionView ItemsSource="{Binding BasketItems}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Label Text="{Binding Name}" FontSize="Medium" VerticalOptions="Center" />
-                        <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}" FontSize="Medium" VerticalOptions="Center" TextColor="Green" />
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Name}" FontSize="Medium" />
+                        <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}" FontSize="Medium" TextColor="Green" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label x:Name="totalLabel" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <Button Text="Clear Basket"
+                Clicked="OnClearBasketClicked"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Tomato"
+                TextColor="White"
+                Margin="0,20,0,0"/>
     </StackLayout>
 
 </ContentPage>
