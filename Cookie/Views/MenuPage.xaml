@@ -20,12 +20,20 @@
                        Padding="10"
                        CornerRadius="5">
 
-                    <Grid>
-                        <Image Source="{Binding Picture}"
+                    <Grid Margin="0,30,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <SwipeView Grid.Row="0">
+                            <Image Source="{Binding Picture}"
                                Aspect="AspectFill"
                                HeightRequest="150"
                                Margin="0,0,0,10"/>
-
+                        </SwipeView>
+                        <SwipeView Grid.Row="1">
                         <StackLayout Grid.Column="1">
                             <Label Text="{Binding Name}"
                                    FontSize="Medium"
@@ -42,6 +50,7 @@
                                    TextColor="Green"
                                    HorizontalOptions="Center"/>
                         </StackLayout>
+                        </SwipeView>
                     </Grid>
                 </Frame>
             </DataTemplate>
