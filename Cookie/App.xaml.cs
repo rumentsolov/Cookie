@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 
 namespace Cookie
 {
@@ -9,7 +8,6 @@ namespace Cookie
         {
             InitializeComponent();
 
-            // Set the main page to AppShell
             MainPage = new AppShell();
         }
     }

@@ -11,12 +11,6 @@
     <FlyoutItem Title="Menu" Icon="icon_menu.png">
         <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Purchase" Icon="icon_purchase.png">
-        <ShellContent ContentTemplate="{DataTemplate local:PurchasePage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="About Us" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate local:AboutUsPage}" />
-    </FlyoutItem>
     <FlyoutItem Title="Basket" Icon="icon_about.png">
         <ShellContent ContentTemplate="{DataTemplate local:BasketPage}" />
     </FlyoutItem>

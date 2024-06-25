@@ -5,9 +5,8 @@
              Title="Basket">
 
     <StackLayout Padding="10">
-        <Label Text="Your Basket" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
-
-        <CollectionView x:Name="basketCollectionView" SelectionMode="None">
+        <Label Text="Your Basket" FontSize="Large" HorizontalOptions="Center" />
+        <CollectionView x:Name="basketCollectionView">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal" Padding="10">
@@ -17,7 +16,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
         <Label x:Name="totalLabel" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" />
     </StackLayout>
 

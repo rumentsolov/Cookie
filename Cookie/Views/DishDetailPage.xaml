@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cookie.Views.DishDetailPage">
+             x:Class="Cookie.Views.DishDetailPage"
+             Title="Dish Detail">
 
     <StackLayout Padding="10">
-        <Label x:Name="titleLabel" FontSize="Large" FontAttributes="Bold" />
+        <Image x:Name="pictureImage" HeightRequest="200" />
+        <Label x:Name="titleLabel" FontSize="Large" />
         <Label x:Name="descriptionLabel" FontSize="Medium" />
+        <Label x:Name="timeLabel" FontSize="Medium" />
         <Label x:Name="priceLabel" FontSize="Medium" TextColor="Green" />
-        <Button Text="Buy" Clicked="OnBuyClicked" />
+        <Button Text="Add to Basket" Clicked="OnAddToBasketClicked" />
     </StackLayout>
 
 </ContentPage>

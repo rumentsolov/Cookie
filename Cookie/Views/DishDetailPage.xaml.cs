@@ -1,4 +1,5 @@
 using Cookie.Models;
+using Cookie.Services;
 using Microsoft.Maui.Controls;
 
 namespace Cookie.Views
@@ -16,17 +17,17 @@ namespace Cookie.Views
 
         private void BindDishData()
         {
+            pictureImage.Source = _dish.Picture;
             titleLabel.Text = _dish.Name;
             descriptionLabel.Text = _dish.Description;
+            timeLabel.Text = $"Time for cooking: {_dish.TimeForCooking}";
             priceLabel.Text = $"Price: ${_dish.Price:F2}";
         }
 
-        private async void OnBuyClicked(object sender, EventArgs e)
+        private async void OnAddToBasketClicked(object sender, EventArgs e)
         {
-            // Handle the purchase logic here (e.g., process payment, save order to database, etc.)
-            await DisplayAlert("Success", $"You have purchased {_dish.Name} for ${_dish.Price:F2}.", "OK");
-
-            // Navigate back to the previous page
+            BasketService.Instance.AddToBasket(_dish);
+            await DisplayAlert("Success", $"{_dish.Name} has been added to your basket.", "OK");
             await Navigation.PopAsync();
         }
     }

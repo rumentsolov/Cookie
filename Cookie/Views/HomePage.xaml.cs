@@ -1,13 +1,10 @@
-namespace Cookie.Views;
-
-public partial class HomePage : ContentPage
+namespace Cookie.Views
 {
-	public HomePage()
-	{
-		InitializeComponent();
-    }
-    private void btn1_Cliked(object sender, EventArgs e)
+    public partial class HomePage : ContentPage
     {
-        Shell.Current.GoToAsync(nameof(HomePage));
+        public HomePage()
+        {
+            InitializeComponent();
+        }
     }
 }
