@@ -1,5 +1,6 @@
-﻿using Cookie.Views;
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
+using Cookie.Views;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Cookie
 {
@@ -8,7 +9,6 @@ namespace Cookie
         public AppShell()
         {
             InitializeComponent();
-
             Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
             Routing.RegisterRoute(nameof(MenuPage), typeof(MenuPage));
             Routing.RegisterRoute(nameof(BasketPage), typeof(BasketPage));
@@ -16,6 +16,26 @@ namespace Cookie
             Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
             Routing.RegisterRoute(nameof(GiftCardsPage), typeof(GiftCardsPage));
             Routing.RegisterRoute(nameof(PartnerWithUsPage), typeof(PartnerWithUsPage));
+            Routing.RegisterRoute(nameof(ContactUsPage), typeof(ContactUsPage));
+            Routing.RegisterRoute(nameof(AccountPage), typeof(AccountPage));
+            // Subscribe to the Navigating event
+            this.Navigating += OnNavigating;
+        }
+
+        private void OnNavigating(object sender, ShellNavigatingEventArgs e)
+        {
+            // Check if the new item is the Basket tab
+            if (e.Target.Location.OriginalString.Contains("//Basket"))
+            {
+                // Find the BasketPage in the navigation stack
+                var basketPage = e.Target.Location.OriginalString.Split('/').Last();
+                if (basketPage == "BasketPage")
+                {
+                    
+                    //var basket = FindByName<BasketPage>("BasketPage");
+                    //basket?.RefreshPage(); // Call the refresh method in BasketPage
+                }
+            }
         }
     }
 }

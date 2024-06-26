@@ -6,7 +6,8 @@
 namespace Cookie.WinUI
 {
     /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
+    /// Provides application-specific behavior to supplement the 
+    /// Application class.
     /// </summary>
     public partial class App : MauiWinUIApplication
     {

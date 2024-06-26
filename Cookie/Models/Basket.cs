@@ -1,10 +1,12 @@
-﻿namespace Cookie.Models
+﻿using System.Collections.ObjectModel;
+
+namespace Cookie.Models
 {
     public class Basket
     {
         private static Basket _instance; // Static instance for singleton pattern
 
-        public List<Dish> Items { get; set; }
+        public ObservableCollection<Dish> Items { get; set; }
 
         // Singleton pattern to ensure one instance of Basket
         public static Basket Instance
@@ -20,18 +22,18 @@
 
         private Basket()
         {
-            Items = new List<Dish>(); // Initialize Items list
+            Items = new ObservableCollection<Dish>(); // Initialize Items list
         }
 
-        public static List<Dish> AddToBasket(Dish _dish)
+        public static ObservableCollection<Dish> AddToBasket(Dish _dish)
         {
             Instance.Items.Add(_dish);
             return Instance.Items;
         }
 
-        public static List<Dish> GetAllPurchased()
+        public static ObservableCollection<Dish> GetAllPurchased()
         {
-            List<Dish> Buff = new List<Dish>();
+            ObservableCollection<Dish> Buff = new ObservableCollection<Dish>();
 
             foreach (Dish dish in Instance.Items)
             {
@@ -39,10 +41,10 @@
                     Buff.Add(dish);
             }
 
-            return Buff;
+            return Instance.Items; //Buff;
         }
 
-        public static List<Dish> ClearBasket()
+        public static ObservableCollection<Dish> ClearBasket()
         {
             Instance.Items.Clear();
             return Instance.Items;

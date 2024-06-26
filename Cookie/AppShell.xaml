@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Cookie.Views"
        x:Class="Cookie.AppShell"
+       x:Name="appShell"
        Title="Cookie">
 
     <!-- Main tab bar navigation -->
@@ -13,21 +13,15 @@
         <Tab Title="Menu" Icon="menu.png">
             <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" />
         </Tab>
+        <Tab Title="Contact" Icon="contact.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ContactUsPage}" />
+        </Tab>
+        <Tab Title="Account" Icon="account.png">
+            <ShellContent ContentTemplate="{DataTemplate local:AccountPage}" />
+        </Tab>
         <Tab Title="Basket" Icon="basket.png">
             <ShellContent ContentTemplate="{DataTemplate local:BasketPage}" />
         </Tab>
     </TabBar>
-
-    <!-- Flyout menu for Explore dropdown -->
-    <FlyoutItem Title="Explore" Icon="explore.png">
-        <!-- ShellSection for Menu -->
-        <!-- ShellSection for sub-items -->
-        <ShellSection Title="Sub Items">
-            <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" />
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
-            <ShellContent ContentTemplate="{DataTemplate local:PartnerWithUsPage}" />
-            <ShellContent ContentTemplate="{DataTemplate local:GiftCardsPage}" />
-        </ShellSection>
-    </FlyoutItem>
 
 </Shell>

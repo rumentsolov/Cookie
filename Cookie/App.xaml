@@ -5,11 +5,10 @@
     <Application.Resources>
         <!-- Application resource dictionary -->
         <ResourceDictionary>
-            <!-- Define any global resources here (styles, colors, etc.) -->
-            <Style TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="FontFamily" Value="Arial" />
-            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,6 +1,6 @@
 using Cookie.Models;
+using System;
 using System.Collections.ObjectModel;
-
 
 namespace Cookie.Views
 {
@@ -11,18 +11,37 @@ namespace Cookie.Views
         public BasketPage()
         {
             InitializeComponent();
-
-            // Initialize ObservableCollection and set as BindingContext
-            BasketDishes = new ObservableCollection<Dish>(DishRepository.GetAllDishes());// new ObservableCollection<Dish>(Basket.GetAllPurchased());
-            BindingContext = this;
-
+            BasketDishes = new ObservableCollection<Dish>(Basket.Instance.Items);
+            dishesCollectionView.ItemsSource = BasketDishes;
         }
 
-
-        private async void OnClearBasketClicked(object sender, EventArgs e)
+        public void RefreshPage()
         {
-            await DisplayAlert("Success", $"{Basket.Instance.Items.Count} items cleared.", "OK");
-            Basket.ClearBasket();
+            BasketDishes.Clear();
+            foreach (var item in Basket.Instance.Items)
+            {
+                BasketDishes.Add(item);
+            }
+            dishesCollectionView.ItemsSource = BasketDishes;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            BasketDishes.Clear();
+            foreach (var item in Basket.Instance.Items)
+            {
+                BasketDishes.Add(item);
+            }
+            dishesCollectionView.ItemsSource = BasketDishes;
+        }
+
+        private void OnClearBasketClicked(object sender, EventArgs e)
+        {
+            Basket.Instance.Items.Clear();
+            RefreshPage(); // Refresh the page after clearing the basket
+        }
+
     }
 }

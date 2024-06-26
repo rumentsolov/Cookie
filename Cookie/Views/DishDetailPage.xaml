@@ -29,7 +29,6 @@
         <Button Text="Add to Basket"
                 Clicked="OnAddToBasketClicked"
                 HorizontalOptions="FillAndExpand"
-                BackgroundColor="DodgerBlue"
                 TextColor="White"
                 Margin="0,20,0,0"/>
     </StackLayout>

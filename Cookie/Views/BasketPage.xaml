@@ -6,49 +6,80 @@
     <StackLayout Padding="20">
         <!-- First Row: Title -->
         <Label Text="Basket Items" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,20"/>
-
+        <RefreshView
+            IsRefreshing="{Binding RefreshCommand.IsRunning}"
+            Command="{Binding RefreshCommand}">
+            
         <!-- Second Row: CollectionView -->
-        <CollectionView ItemsSource="{Binding BasketDishes}">
+        <CollectionView x:Name="dishesCollectionView"
+                        ItemsSource="{Binding BasketDishes}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,30,0,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <SwipeView Grid.Column="0">
                             <Image Source="{Binding Picture}"
-               Aspect="AspectFill"
-               HeightRequest="50"
-               Margin="0,0,20,10"/>
+                           Aspect="AspectFill"
+                           HeightRequest="30"
+                           Margin="0,0,20,10"/>
                         </SwipeView>
                         <SwipeView Grid.Column="1">
-                            <StackLayout Grid.Column="1">
-                                <Label Text="{Binding Name}"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Start"/>
-                                <Label Text="{Binding Description}"
-                   FontSize="Small"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Center"/>
-                                <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}"
-                   FontSize="Medium"
-                   TextColor="Green"
-                   HorizontalOptions="Start"/>
-                            </StackLayout>
+                            <Label Text="{Binding Name}"
+                               FontSize="Medium"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"/>
+                        </SwipeView>
+                            <SwipeView Grid.Column="2">
+                                <Image Source="minus.png"
+                               Aspect="AspectFit"
+                               HeightRequest="15"
+                               Margin="0,0,20,10"
+                               HorizontalOptions="End"
+                                   />
+                            </SwipeView>
+                            <SwipeView Grid.Column="3">
+                            <Label Text="{Binding Pcs, StringFormat='{0:F0}'}"
+                            FontSize="30"
+                            TextColor="Green"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Margin="0,0,20,10"/>
+                        </SwipeView>
+                            <SwipeView Grid.Column="4">
+                                <Image Source="plus.png"
+                               Aspect="AspectFit"
+                               HeightRequest="15"
+                               Margin="0,0,20,10"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"/>
+                            </SwipeView>
+                            <SwipeView Grid.Column="5">
+                               <Image Source="garbage.png"
+                               Aspect="AspectFit"
+                               HeightRequest="30"
+                               Margin="0,0,0,10"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"/>
                         </SwipeView>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-        </CollectionView>
+            </CollectionView>
+        </RefreshView>
 
         <!-- Third Row: Clear Button -->
         <Button Text="Clear Basket"
                 Clicked="OnClearBasketClicked"
                 HorizontalOptions="FillAndExpand"
-                BackgroundColor="Tomato"
                 TextColor="White"
                 Margin="0,20,0,0"/>
     </StackLayout>
