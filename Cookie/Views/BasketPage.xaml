@@ -2,22 +2,49 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cookie.Views.BasketPage"
-             Title="Basket">
-
+             Title="BasketPage">
     <StackLayout Padding="20">
+        <!-- First Row: Title -->
         <Label Text="Basket Items" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,20"/>
 
-        <CollectionView ItemsSource="{Binding BasketItems}">
+        <!-- Second Row: CollectionView -->
+        <CollectionView ItemsSource="{Binding BasketDishes}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding Name}" FontSize="Medium" />
-                        <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}" FontSize="Medium" TextColor="Green" />
-                    </StackLayout>
+                    <Grid Margin="0,30,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <SwipeView Grid.Column="0">
+                            <Image Source="{Binding Picture}"
+               Aspect="AspectFill"
+               HeightRequest="50"
+               Margin="0,0,20,10"/>
+                        </SwipeView>
+                        <SwipeView Grid.Column="1">
+                            <StackLayout Grid.Column="1">
+                                <Label Text="{Binding Name}"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start"/>
+                                <Label Text="{Binding Description}"
+                   FontSize="Small"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+                                <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}"
+                   FontSize="Medium"
+                   TextColor="Green"
+                   HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </SwipeView>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <!-- Third Row: Clear Button -->
         <Button Text="Clear Basket"
                 Clicked="OnClearBasketClicked"
                 HorizontalOptions="FillAndExpand"

@@ -1,60 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cookie.Views.MenuPage"
              Title="Menu">
-
     <CollectionView ItemsSource="{Binding Dishes}"
                     SelectionMode="Single"
                     SelectionChanged="OnSelectionChanged">
-
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical"
                              Span="2"
                              HorizontalItemSpacing="10"
                              VerticalItemSpacing="10"/>
         </CollectionView.ItemsLayout>
-
+        
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame BackgroundColor="#f0f0f0"
                        Padding="10"
                        CornerRadius="5">
-
                     <Grid Margin="0,30,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-
                         <SwipeView Grid.Row="0">
                             <Image Source="{Binding Picture}"
-                               Aspect="AspectFill"
-                               HeightRequest="150"
-                               Margin="0,0,0,10"/>
+                                   Aspect="AspectFill"
+                                   HeightRequest="150"
+                                   Margin="0,0,0,10"/>
                         </SwipeView>
                         <SwipeView Grid.Row="1">
-                        <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Name}"
-                                   FontSize="Medium"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"/>
-
-                            <Label Text="{Binding Description}"
-                                   FontSize="Small"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"/>
-
-                            <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}"
-                                   FontSize="Medium"
-                                   TextColor="Green"
-                                   HorizontalOptions="Center"/>
-                        </StackLayout>
+                            <StackLayout Grid.Column="1">
+                                <Label Text="{Binding Name}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="{Binding Description}"
+                                       FontSize="Small"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}"
+                                       FontSize="Medium"
+                                       TextColor="Green"
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
                         </SwipeView>
                     </Grid>
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
-
 </ContentPage>

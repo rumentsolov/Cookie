@@ -1,6 +1,4 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
+﻿using Cookie.Models;
 
 namespace Cookie
 {
@@ -16,6 +14,10 @@ namespace Cookie
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+
+                 //public static List<Dish> BasketItems;
+
 
             return builder.Build();
         }
