@@ -80,7 +80,6 @@
         <Button Text="Clear Basket"
                 Clicked="OnClearBasketClicked"
                 HorizontalOptions="FillAndExpand"
-                TextColor="White"
                 Margin="0,20,0,0"/>
     </StackLayout>
 
