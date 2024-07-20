@@ -1,7 +1,10 @@
 ﻿using Cookie.Models;
-
+using Cookie.Services;
+using Cookie.Views;
 namespace Cookie
 {
+
+    // Ver. 1.0.0
     public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()
@@ -15,8 +18,13 @@ namespace Cookie
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-
-                 //public static List<Dish> BasketItems;
+            builder.Services.AddTransient<AuthService>();
+            builder.Services.AddTransient<LoadingPage>();
+            builder.Services.AddTransient<MenuPage>();
+            builder.Services.AddTransient<BasketPage>();
+            builder.Services.AddTransient<AccountPage>();
+            builder.Services.AddTransient<LoginPage>();
+            //public static List<Dish> BasketItems;
 
 
             return builder.Build();

@@ -4,24 +4,28 @@
        x:Class="Cookie.AppShell"
        x:Name="appShell"
        Title="Cookie">
-
+   
     <!-- Main tab bar navigation -->
     <TabBar>
         <Tab Title="Home" Icon="home.png">
-            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" Route="HomePage" Shell.FlyoutBehavior="Disabled"/>
         </Tab>
         <Tab Title="Menu" Icon="menu.png">
-            <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:MenuPage}" Route="MenuPage" Shell.FlyoutBehavior="Disabled" />
         </Tab>
         <Tab Title="Contact" Icon="contact.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ContactUsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:ContactUsPage}" Route="ContactUsPage" Shell.FlyoutBehavior="Disabled"/>
         </Tab>
         <Tab Title="Account" Icon="account.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AccountPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:AccountPage}" Route="AccountPage" Shell.FlyoutBehavior="Disabled"/>
         </Tab>
         <Tab Title="Basket" Icon="basket.png">
-            <ShellContent ContentTemplate="{DataTemplate local:BasketPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:BasketPage}" Route="BasketPage" Shell.FlyoutBehavior="Disabled" />
         </Tab>
     </TabBar>
+
+
+    <ShellContent Title="Login" ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage" Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent Title="Loading"  ContentTemplate="{DataTemplate local:LoadingPage}" Route="LoadingPage" Shell.FlyoutBehavior="Disabled"/>
 
 </Shell>

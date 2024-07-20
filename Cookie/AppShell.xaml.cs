@@ -18,6 +18,8 @@ namespace Cookie
             Routing.RegisterRoute(nameof(PartnerWithUsPage), typeof(PartnerWithUsPage));
             Routing.RegisterRoute(nameof(ContactUsPage), typeof(ContactUsPage));
             Routing.RegisterRoute(nameof(AccountPage), typeof(AccountPage));
+            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(LoadingPage), typeof(LoadingPage));
             // Subscribe to the Navigating event
             this.Navigating += OnNavigating;
         }
