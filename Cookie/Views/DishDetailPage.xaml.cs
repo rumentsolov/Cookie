@@ -10,18 +10,8 @@ namespace Cookie.Views
         public DishDetailPage(Dish dish)
         {
             InitializeComponent();
-            _dish = dish;
-            BindingContext = _dish;
         }
 
-        private async void OnAddToBasketClicked(object sender, EventArgs e)
-        {
-            Basket.AddToBasket(_dish);
-            
-            await DisplayAlert("Success", $"{_dish.Name} has been added to your basket.", "OK");
-            
-            await Navigation.PopAsync();
-
-        }
+ 
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Cookie.Models;
 using Cookie.Services;
 using Cookie.Views;
+using CommunityToolkit.Maui;
+
 namespace Cookie
 {
 
@@ -11,12 +13,15 @@ namespace Cookie
         {
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseMauiApp<App>() // Ensure this matches the App class in your project
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+            .UseMauiApp<App>()
+            // Initialize the .NET MAUI Community Toolkit by adding the below line of code
+            .UseMauiCommunityToolkit()
+            // After initializing the .NET MAUI Community Toolkit, optionally add additional fonts
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
             builder.Services.AddTransient<AuthService>();
             builder.Services.AddTransient<LoadingPage>();

@@ -1,20 +1,15 @@
 using Cookie.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Realms.Sync;
 
 namespace Cookie.Views;
 
 public partial class LoginPage : ContentPage
 {
-	private readonly AuthService _authService;
 
-	public LoginPage(AuthService authService)
+	public LoginPage()
 	{
 		InitializeComponent();
-		_authService = authService;
 	}
-
-    private async void ButtonLogin_Clicked(object sender, EventArgs e)
-    {
-		_authService.LogIn();
-		await Shell.Current.GoToAsync($"//MenuPage");
-    }
 }

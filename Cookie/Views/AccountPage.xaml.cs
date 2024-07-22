@@ -16,11 +16,7 @@ namespace Cookie.Views
             _authService = authService;
             Account = new Account
             {
-                Username = "JohnDoe",
-                Email = "john.doe@example.com",
-                PhoneNumber = "123-456-7890",
-                Address = "123 Main St, Springfield, USA"
-                // Initialize other account details as needed
+
             };
             BindingContext = Account;
         }

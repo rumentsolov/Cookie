@@ -57,15 +57,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="ViewModels\**" />
-	  <Compile Remove="ViewModels\**" />
-	  <EmbeddedResource Remove="ViewModels\**" />
-	  <MauiCss Remove="ViewModels\**" />
-	  <MauiXaml Remove="ViewModels\**" />
-	  <None Remove="ViewModels\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<None Remove="Resources\Images\basket.png" />
 		<None Remove="Resources\Images\burger.png" />
 		<None Remove="Resources\Images\explore.png" />
@@ -77,9 +68,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="CommunityToolkit.HighPerformance" Version="8.2.2" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.2" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.70" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.70" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="MongoDB.Bson" Version="2.27.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.27.0" />
+		<PackageReference Include="Realm" Version="12.3.0" />
 	</ItemGroup>
 
 	<ItemGroup>
