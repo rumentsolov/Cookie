@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Cookie.ViewModels"
              x:Class="Cookie.Views.LoginPage"
              Title="LoginPage">
-    <VerticalStackLayout Padding="25" Spacing="25">
-        <Label 
-            Text="Login Page!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="Login" Clicked="ButtonLogin_Clicked"/>
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30, 0" VerticalOptions="Center">
+            <Frame Padding="12, 5">
+                <Entry Placeholder="Email" Text="{Binding EmailText}" TextColor="#333"/>
+            </Frame>
+            <Frame Padding="12, 5">
+                <Entry Placeholder="Password" IsPassword="True" Text="{Binding PasswordText}" TextColor="#333"/>
+            </Frame>
+            <Button Text="Login/Create Account" Command="{Binding LoginTryCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -2,11 +2,12 @@
 using Cookie.Services;
 using Cookie.Views;
 using CommunityToolkit.Maui;
+using Cookie.ViewModels;
 
 namespace Cookie
 {
 
-    // Ver. 1.0.0
+    // Ver. 2.0.0
     public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()
@@ -24,12 +25,22 @@ namespace Cookie
             });
 
             builder.Services.AddTransient<AuthService>();
-            builder.Services.AddTransient<LoadingPage>();
-            builder.Services.AddTransient<MenuPage>();
-            builder.Services.AddTransient<BasketPage>();
-            builder.Services.AddTransient<AccountPage>();
-            builder.Services.AddTransient<LoginPage>();
-            //public static List<Dish> BasketItems;
+            builder.Services.AddSingleton<LoggedInAccount>();
+
+            // Register view models
+            builder.Services.AddSingleton<LoginViewModel>();
+
+            // Register views
+            builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddSingleton<MenuPage>();
+            builder.Services.AddSingleton<MenuPage>();
+            builder.Services.AddSingleton<DishDetailedPage>();
+            builder.Services.AddSingleton<ContactUsPage>();
+            builder.Services.AddSingleton<LoadingPage>();
+            builder.Services.AddSingleton<AccountPage>();
+            builder.Services.AddSingleton<HomePage>();
+
+            builder.Services.AddSingleton<BasketPage>();
 
 
             return builder.Build();

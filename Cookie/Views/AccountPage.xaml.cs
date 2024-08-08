@@ -1,27 +1,21 @@
 using Cookie.Models;
 using Cookie.Services;
+using Cookie.ViewModels;
 using Microsoft.Maui.Controls;
 
 namespace Cookie.Views
 {
     public partial class AccountPage : ContentPage
     {
-        private readonly AuthService _authService;
-        public Account Account { get; set; }
-
-        public AccountPage(AuthService authService)
+        //private readonly AuthService _authService;
+        public AccountPage()
         {
 
             InitializeComponent();
-            _authService = authService;
-            Account = new Account
-            {
-
-            };
-            BindingContext = Account;
+            BindingContext = new AccountViewModel();
         }
 
-        private async void OnEditAccountClicked(object sender, EventArgs e)
+/*        private async void OnEditAccountClicked(object sender, EventArgs e)
         {
             // Navigate to an edit account page or display an edit form
             await DisplayAlert("Edit Account", "This feature is not implemented yet.", "OK");
@@ -31,6 +25,6 @@ namespace Cookie.Views
         {
             _authService.LogOut();
             Shell.Current.GoToAsync("//LoginPage");
-        }
+        }*/
     }
 }

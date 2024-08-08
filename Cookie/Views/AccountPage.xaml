@@ -1,37 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Cookie.Views"
+             xmlns:vm="clr-namespace:Cookie.ViewModels"
              x:Class="Cookie.Views.AccountPage"
              Title="Account Information">
+    <ContentPage.BindingContext>
+        <vm:AccountViewModel />
+    </ContentPage.BindingContext>
 
-    <ScrollView>
-        <StackLayout Padding="10">
-            <Label Text="Account Information" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10,0,10"/>
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*" ColumnDefinitions="Auto,Auto">
+        <!-- Email -->
+        <Label Text="Email:" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
+        <Label Text="{Binding Email}" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" />
 
-            <StackLayout Orientation="Horizontal" Margin="0,10">
-                <Label Text="Username:" FontSize="Medium" FontAttributes="Bold" WidthRequest="100"/>
-                <Label Text="{Binding Username}" FontSize="Medium"/>
-            </StackLayout>
+        <!-- Phone Number -->
+        <Label Text="Phone Number:" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" />
+        <Entry Text="{Binding PhoneNo}" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" />
 
-            <StackLayout Orientation="Horizontal" Margin="0,10">
-                <Label Text="Email:" FontSize="Medium" FontAttributes="Bold" WidthRequest="100"/>
-                <Label Text="{Binding Email}" FontSize="Medium"/>
-            </StackLayout>
+        <!-- Given Name -->
+        <Label Text="Given Name:" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" />
+        <Entry Text="{Binding GivenName}" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" />
 
-            <StackLayout Orientation="Horizontal" Margin="0,10">
-                <Label Text="Phone Number:" FontSize="Medium" FontAttributes="Bold" WidthRequest="100"/>
-                <Label Text="{Binding PhoneNumber}" FontSize="Medium"/>
-            </StackLayout>
+        <!-- Family Name -->
+        <Label Text="Family Name:" FontAttributes="Bold" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" />
+        <Entry Text="{Binding FamilyName}" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" />
 
-            <StackLayout Orientation="Horizontal" Margin="0,10">
-                <Label Text="Address:" FontSize="Medium" FontAttributes="Bold" WidthRequest="100"/>
-                <Label Text="{Binding Address}" FontSize="Medium"/>
-            </StackLayout>
+        <!-- Address -->
+        <Label Text="Address:" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" />
+        <Entry Text="{Binding Address}" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" />
 
-            <!-- Add other account details as needed -->
+        <!-- Created At -->
+        <Label Text="Created At:" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" />
+        <Label Text="{Binding CreatedAt}" Grid.Row="5" Grid.Column="1" VerticalOptions="Center" />
 
-            <Button Text="Edit Account" Clicked="OnEditAccountClicked" HorizontalOptions="Center" Margin="0,20"/>
-            <Button Text="LogOut" Clicked="btnLogoutCliked" HorizontalOptions="Center" Margin="0,20"/>
-        </StackLayout>
-    </ScrollView>
+        <!-- Updated At -->
+        <Label Text="Updated At:" FontAttributes="Bold" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" />
+        <Label Text="{Binding UpdatedAt}" Grid.Row="6" Grid.Column="1" VerticalOptions="Center" />
+
+        <!-- Last Login -->
+        <Label Text="Last Login:" FontAttributes="Bold" Grid.Row="7" Grid.Column="0" VerticalOptions="Center" />
+        <Label Text="{Binding LastLogin}" Grid.Row="7" Grid.Column="1" VerticalOptions="Center" />
+
+
+        <!-- Latest Basket Items -->
+        <Label Text="Basket Updated:" FontAttributes="Bold" Grid.Row="8" Grid.Column="0" VerticalOptions="Center" />
+        <Label Text="{Binding LatestBasketUpdate}" Grid.Row="8" Grid.Column="1" VerticalOptions="Center" />
+
+        <!-- Total Basket Items -->
+        <Label Text="Total Basket Items:" FontAttributes="Bold" Grid.Row="9" Grid.Column="0" VerticalOptions="Center" />
+        <Label Text="{Binding TotalBasketItems}" Grid.Row="9" Grid.Column="1" VerticalOptions="Center" />
+
+        <!-- Email Verified -->
+        <Label Text="Email Verified:" FontAttributes="Bold" Grid.Row="10" Grid.Column="0" VerticalOptions="Center" />
+        <Switch IsToggled="{Binding EmailVerified}" IsEnabled="False" Grid.Row="10" Grid.Column="1" VerticalOptions="Center" />
+
+        <!-- Save Button -->
+        <Button Text="Save" Command="{Binding SaveEditCommand}" Grid.Row="11" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"/>
+    </Grid>
 </ContentPage>

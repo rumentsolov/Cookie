@@ -9,7 +9,7 @@ namespace Cookie.Views
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync($"//{nameof(LoadingPage)}");
+            Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }
 }
