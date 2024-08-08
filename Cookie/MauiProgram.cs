@@ -7,7 +7,7 @@ using Cookie.ViewModels;
 namespace Cookie
 {
 
-    // Ver. 2.0.0
+    // Ver. 2.0.1
     public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()
@@ -34,7 +34,7 @@ namespace Cookie
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<MenuPage>();
             builder.Services.AddSingleton<MenuPage>();
-            builder.Services.AddSingleton<DishDetailedPage>();
+            builder.Services.AddSingleton<DishDetailPage>();
             builder.Services.AddSingleton<ContactUsPage>();
             builder.Services.AddSingleton<LoadingPage>();
             builder.Services.AddSingleton<AccountPage>();

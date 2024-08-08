@@ -76,15 +76,22 @@ namespace Cookie.Models
         public void AddDishToBasket(Dish dish)
         {
             var realm = Realm.GetInstance();
-            realm.Write(() =>
+            Account accountInRealm = realm.All<Account>().FirstOrDefault(a => a.Email == currentAccount.Email); // Searches for such an account
+
+            if (accountInRealm != null)
             {
-                // Ensure currentAccount is not null
-                if (currentAccount != null)
+                realm.Write(() =>
                 {
-                    // Add the dish to the basket list
-                    currentAccount.BasketList.Add(dish);
-                }
-            });
+                    // Ensure currentAccount is not null
+                        accountInRealm.BasketList.Add(dish);
+                });
+                currentAccount.BasketList.Add(dish);
+                realm.Write(() =>
+                {
+                    realm.Add(currentAccount, update: true);
+                });
+            }
+
         }
 
         public void RemoveDishFromBasket(Dish dish)

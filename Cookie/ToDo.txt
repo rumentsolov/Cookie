@@ -1,0 +1,3 @@
+﻿To fix Realm update on adding dish to basket
+To make app to wait untill account is fully loaded due to sometimes doesnt wait
+To implement fully AuthService to work

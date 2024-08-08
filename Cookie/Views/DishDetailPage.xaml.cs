@@ -4,11 +4,11 @@ using Realms;
 namespace Cookie.Views
 {
 
-    public partial class DishDetailedPage : ContentPage
+    public partial class DishDetailPage : ContentPage
     {
         private readonly Dish _dish;
 
-        public DishDetailedPage(Dish dish)
+        public DishDetailPage(Dish dish)
         {
             InitializeComponent();
             _dish = dish;

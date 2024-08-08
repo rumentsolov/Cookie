@@ -38,14 +38,14 @@ namespace Cookie.Views
             var selectedDish = e.CurrentSelection.FirstOrDefault() as Dish;
             if (selectedDish != null)
             {
-                await Navigation.PushAsync(new DishDetailedPage(selectedDish));
+                await Navigation.PushAsync(new DishDetailPage(selectedDish));
                 ((CollectionView)sender).SelectedItem = null;
             }
         }
 
         private void LoadDishes()
         {
-            //AddSomeDishesToRealm();
+            AddSomeDishesToRealm();
             var realm = Realm.GetInstance();
 
             // Query all Dish objects from Realm
@@ -94,7 +94,7 @@ namespace Cookie.Views
                     Price = 7.99,
                     Description = "Fresh salad",
                     TimeForCooking = 5,
-                    Picture = "salad.png"
+                    Picture = "sallad.png"
                 });
 
                 realm.Add(new Dish
